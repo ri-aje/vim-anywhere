@@ -56,7 +56,8 @@ touch $TMPFILE
 # Linux
 if [[ $OSTYPE == "linux-gnu" ]]; then
   chmod o-r $TMPFILE # Make file only readable by you
-  gvim $VIM_OPTS $TMPFILE
+  # gvim $VIM_OPTS $TMPFILE
+  bash -c "terminator -x env TERM=xterm-256color vim $VIM_OPTS $TMPFILE"
   cat $TMPFILE | xclip -selection clipboard
 
 # OSX
